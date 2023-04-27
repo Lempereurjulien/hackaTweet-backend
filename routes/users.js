@@ -53,4 +53,8 @@ router.post("/signin", (req, res) => {
   });
 });
 
+router.get("/delete", (req, res) =>{
+  User.deleteMany()
+  .then(() => console.log('database clear'));
+})
 module.exports = router;
