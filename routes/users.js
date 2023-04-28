@@ -45,7 +45,7 @@ router.post("/signin", (req, res) => {
   // Vérifie si le username et le mot de passe correspondent a des données dans la BDD
   User.findOne({ username: req.body.username }).then((data) => {
     if (data && bcrypt.compareSync(req.body.password, data.password)) {
-      res.json({ result: true, token: data.token });
+      res.json({ result: true, token: data.token, username : data.username });
     } else {
       // Soit l utilisateur n existe pas, soit le mot de passe est faux, renvoie un message d erreur
       res.json({ result: false, error: "User not found or wrong password" });
