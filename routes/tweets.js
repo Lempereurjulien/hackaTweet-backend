@@ -59,5 +59,9 @@ router.delete("/:id", (req, res, next) => {
   });
 });
 
+router.get("/delete", (req, res) => {
+  Tweet.deleteMany().then(() => console.log("database clear"));
+});
+
 module.exports = router;
 //
